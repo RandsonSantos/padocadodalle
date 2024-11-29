@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.categoria {
+    margin: 20px 0;
+}
+
+.categoria h2 {
+    background-color: #ffcc00;
+    padding: 10px;
+    border-left: 5px solid #e6b800;
+    color: #333;
+}
+
+.categoria ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.categoria ul li {
+    background-color: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Restante do seu CSS ADMIN */
+
+form {
+    display: flexbox;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+form label {
+    margin: 5px 0;
+}
+
+form input {
+    margin: 5px 0 10px;
+    padding: 5px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #e6b800;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.categoria {
+    margin: 20px 0;
+}
+
+.categoria h2 {
+    background-color: #ffcc00;
+    padding: 10px;
+    border-left: 5px solid #e6b800;
+    color: #333;
+}
+
+.categoria ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.categoria ul li {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+    
+    .categoria h2 {
+        font-size: 1.2em;
+        padding: 8px;
+    }
+
+    .categoria ul li {
+        font-size: 1em;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .categoria h2 {
+        font-size: 2em;
+        padding: 5px;
+    }
+
+    .categoria ul li {
+        font-size: 2em;
+        padding: 5px;
+    }
+}

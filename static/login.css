@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 30px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+#login-form {
+    max-width: 300px;
+    margin:  auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 10px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 20px 4px rgba(0, 0, 0, 0.1);
+}
+
+#login-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+#login-form input {
+    width: fit-content;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0000FF; /* Cor azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#login-form button:hover {
+    background-color: #FFCC00; /* Cor amarela ao passar o mouse */
+}

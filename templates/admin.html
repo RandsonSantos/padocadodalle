@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Administração da Padaria</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+    <h1>Administração da Padaria</h1>    
+    <form action="{{ url_for('admin') }}" method="post">
+        <label for="categoria_filtro">Filtrar por Categoria:</label>
+        <select id="categoria_filtro" name="categoria_filtro">
+            <option value="">Todas</option>
+            {% for categoria in categorias %}
+            <option value="{{ categoria.nome }}">{{ categoria.nome }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <form action="{{ url_for('add_categoria') }}" method="post" style="margin-top: 20px;">
+        <label for="nova_categoria">Adicionar Nova Categoria:</label>
+        <input type="text" id="nova_categoria" name="nova_categoria" required>
+        <button type="submit">Adicionar Categoria</button>
+    </form>
+
+    <form action="{{ url_for('add_produtos') }}" method="post" style="margin-top: 20px;">
+        <label for="nome">Nome do Produto:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="valor">Valor do Produto:</label>
+        <input type="text" id="valor" name="valor" required>
+        <label for="categoria_id">Categoria do Produto:</label>
+        <select id="categoria_id" name="categoria_id" required>
+            {% for categoria in categorias %}
+            <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Adicionar Produto</button>
+    </form>
+
+    <h2>Produtos:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto.nome }}</td>
+                <td>R$ {{ produto.valor }}</td>
+                <td>{{ produto.categoria.nome }}</td>
+                <td>
+                    <a href="{{ url_for('edit_produtos', id=produto.id) }}">Editar</a>
+                    <form action="{{ url_for('delete_produto', id=produto.id) }}" method="post" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

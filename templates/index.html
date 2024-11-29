@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio da Padaria</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Cardápio da Padaria</h1>
+    {% for categoria, items in cardapio.items() %}
+    <div class="categoria">
+        <h2>{{ categoria.capitalize() }}</h2>
+        <ul>
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</body>
+</html>
+a<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio da Padaria - Admin</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu.css') }}">
+    <script>
+        async function login(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            const response = await fetch('path/to/user.json');
+            const data = await response.json();
+            const users = data.users;
+
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                document.getElementById("admin-content").style.display = "block";
+                document.getElementById("login-form").style.display = "none";
+            } else {
+                alert("Nome de usuário ou senha incorretos!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Área Administrativa</h1>
+
+    <!-- Formulário de Login -->
+    <div id="login-form">
+        <form onsubmit="login(event)">
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" required>
+            <br>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" required>
+            <br>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <!-- Conteúdo da Administração -->
+    <div id="admin-content" style="display:none;">
+        <h2>Bem-vindo, Admin!</h2>
+        <p>Aqui você pode gerenciar o cardápio da padaria.</p>
+        <!-- Coloque aqui o conteúdo da administração, por exemplo, a tabela de produtos ou links para adicionar/editar produtos -->
+    </div>
+</body>
+</html>

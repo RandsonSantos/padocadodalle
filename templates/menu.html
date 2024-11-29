@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio da Padoca do Dallé</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu.css') }}">
+    <script>
+        function showProducts(category, button) {
+            var products = document.getElementsByClassName("produto");
+            for (var i = 0; i < products.length; i++) {
+                if (category === "" || products[i].dataset.category === category) {
+                    products[i].style.display = "flex";
+                    products[i].classList.add("aumentar-fonte");
+                } else {
+                    products[i].style.display = "none";
+                    products[i].classList.remove("aumentar-fonte");
+                }
+            }
+
+            var buttons = document.getElementsByClassName("categoria-btn");
+            for (var j = 0; j < buttons.length; j++) {
+                buttons[j].classList.remove("ativo");
+            }
+            button.classList.add("ativo");
+        }
+
+        function closeBanner() {
+            document.querySelector('.banner-flutuante').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <h1>Cardápio da Padoca do Dallé</h1>
+
+    <!-- Logo da Padaria -->
+    <div class="logo">
+        <img src="{{ url_for('static', filename='image/logo.png') }}" alt="Logo da Padaria">
+    </div>
+
+    <div class="categorias">
+        {% for categoria in cardapio.keys() %}
+        <button onclick="showProducts('{{ categoria }}', this)" class="categoria-btn">{{ categoria.capitalize() }}</button>
+        {% endfor %}
+    </div>
+
+    <!-- Banner de Promoção -->
+    <div class="banner-promocao">
+        <span>🎉 Promoção Especial:! 🎉</span>
+    </div>
+    <div class="produtos-lista">
+        {% for categoria, items in cardapio.items() %}
+        {% for item in items %}
+        <div class="produto" data-category="{{ categoria }}" style="display:none;">
+            <span>{{ item.nome }}</span>
+            <span class="valor">R$ {{ item.valor }}</span>
+        </div>
+        {% endfor %}
+        {% endfor %}
+    </div>
+        <!-- Banner com Foto de Produto em Promoção -->
+    <div class="banner-produto-promocao">
+        <h2>Destaque do Dia!</h2>
+        <img src="{{ url_for('static', filename='image/banner.png') }}" alt="Produto em Promoção">
+        <p class="promo-text">Aproveite nosso delicioso <strong>Produto em Promoção</strong> com um preço especial!</p>
+    </div>
+    <h1>@Desenvolvido por Randson Santos-Todos os direitos Reservados</h1>
+
+</body>
+</html>

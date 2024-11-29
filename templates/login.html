@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <h1>{{ title }}</h1>
+
+    <!-- Formulário de Login -->
+    <div id="login-form">
+        <form method="post">
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

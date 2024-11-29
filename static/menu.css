@@ -1,0 +1,186 @@
+:root {
+    --blue: #0000FF;
+    --yellow: #FFCC00;
+    --gold: #FFD700;
+    --white: #FFFFFF;
+    --light-grey: #f7f7f7;
+    --grey: #ddd;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 250px; /* Ajuste a largura conforme necessário */
+    height: fit-content; /* Mantém a proporção da imagem */
+}
+
+.categorias {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.categoria-btn {
+    background-color: var(--blue); /* Cor azul inicial */
+    border: none;
+    padding: 15px;
+    margin: 5px;
+    font-size: 45px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.categoria-btn:hover {
+    background-color: var(--yellow); /* Cor amarela ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do botão */
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.categoria-btn:focus {
+    outline: 2px solid var(--yellow);
+}
+
+.categoria-btn.ativo {
+    background-color: var(--yellow); /* Cor amarela para o botão ativo */
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.banner-promocao {
+    text-align: center;
+    background-color: var(--gold); /* Dourado para chamar atenção */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 2em;
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.banner-flutuante {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--yellow);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.banner-flutuante span {
+    font-size: 1.2em;
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 10px;
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.produto {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--blue);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #ccc;
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.produto span.valor {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.produtos-lista {
+    margin-top: 20px;
+}
+
+/* Classe para aumentar a fonte dos produtos e valores */
+.aumentar-fonte {
+    font-size: 3em;
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.aumentar-fonte .valor {
+    font-size: 3em;
+    color: var(--white); /* Cor da fonte branca */
+}
+
+.propaganda-instagram {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--light-grey);
+    border: 1px solid var(--grey);
+}
+
+.propaganda-instagram img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.propaganda-instagram h2 {
+    margin: 0;
+}
+
+.propaganda-instagram p {
+    margin: 10px 0 0;
+}
+
+.banner-produto-promocao {
+    font-size: 5;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fffbe8;
+    border: 1px solid #ffca28;
+}
+
+.banner-produto-promocao img {
+    width: 450px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.banner-produto-promocao h2 {
+    margin: 0 0 10px;
+}
+
+.banner-produto-promocao p {
+    margin: 10px 0 0;
+}
+.promo-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff0000; /* Cor vermelha para destaque */
+    text-align: center; /* Centraliza o texto */
+}
