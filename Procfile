@@ -1,1 +1,1 @@
-web: gunicorn dalle:app
+web: gunicorn app:app
