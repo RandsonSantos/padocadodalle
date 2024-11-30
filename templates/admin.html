@@ -24,6 +24,18 @@
         <button type="submit">Adicionar Categoria</button>
     </form>
 
+    <h2>Categorias:</h2>
+    <ul>
+        {% for categoria in categorias %}
+        <li>
+            {{ categoria.nome }}
+            <form method="POST" action="{{ url_for('delete_categoria', id=categoria.id) }}" onsubmit="return confirm('Você tem certeza que deseja excluir esta categoria?');" style="display:inline;">
+                <button type="submit">Excluir</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
     <form action="{{ url_for('add_produtos') }}" method="post" style="margin-top: 20px;">
         <label for="nome">Nome do Produto:</label>
         <input type="text" id="nome" name="nome" required>
