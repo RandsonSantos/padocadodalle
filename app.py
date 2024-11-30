@@ -3,11 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 from datetime import timedelta
 
+
+
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'  # Altere para uma chave secreta segura
 
 # Configuração do banco de dados SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///padaria.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://cardapiopadocadodalle_user:uIsMeVEiweUX9oCNh270JVYOklzZ5LOf@dpg-ct52vou8ii6s73dh7sa0-a.oregon-postgres.render.com/cardapiopadocadodalle'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -102,6 +104,19 @@ def add_categoria():
             db.session.commit()
     return redirect(url_for('admin'))
 
+@app.route('/delete_categoria/<int:id>', methods=['POST'])
+def delete_categoria(id):
+    if 'user' not in session:
+        return redirect(url_for('login'))
+
+    categoria = Categoria.query.get_or_404(id)
+    if categoria.produtos:
+        return 'Não é possível excluir uma categoria que possui produtos associados.'
+    
+    db.session.delete(categoria)
+    db.session.commit()
+    return redirect(url_for('admin'))
+
 @app.route('/editar_produtos/<int:id>', methods=['GET', 'POST'])
 def edit_produtos(id):
     if 'user' not in session:
@@ -126,11 +141,6 @@ def delete_produto(id):
     db.session.delete(produto)
     db.session.commit()
     return redirect(url_for('admin'))
-
-@app.route('/lista_produtos')
-def lista_produtos():
-    produtos = Produto.query.all()
-    return render_template('lista_produtos.html', produtos=produtos)
 
 @app.route('/logout')
 def logout():
