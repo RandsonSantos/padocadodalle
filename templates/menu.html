@@ -27,6 +27,28 @@
         function closeBanner() {
             document.querySelector('.banner-flutuante').style.display = 'none';
         }
+
+        var inactivityTime = function() {
+            var time;
+            window.onload = resetTimer;
+            document.onmousemove = resetTimer;
+            document.onkeypress = resetTimer;
+            document.onclick = resetTimer;
+            document.onscroll = resetTimer;
+
+            function redirectPage() {
+                window.location.href = "https://www.google.com";
+            }
+
+            function resetTimer() {
+                clearTimeout(time);
+                time = setTimeout(redirectPage, 180000);  // 180000 milissegundos = 3 minutos
+            }
+        };
+
+        window.onload = function() {
+            inactivityTime();  // Inicializa o script de inatividade
+        }
     </script>
 </head>
 <body>
@@ -57,13 +79,16 @@
         {% endfor %}
         {% endfor %}
     </div>
-        <!-- Banner com Foto de Produto em Promoção -->
+
+    <!-- Banner com Foto de Produto em Promoção -->
     <div class="banner-produto-promocao">
         <h2>Destaque do Dia!</h2>
         <img src="{{ url_for('static', filename='image/banner.png') }}" alt="Produto em Promoção">
         <p class="promo-text">Aproveite nosso delicioso <strong>Produto em Promoção</strong> com um preço especial!</p>
     </div>
-    <h1>@Desenvolvido por Randson Santos-Todos os direitos Reservados</h1>
+
+    <h1>@Desenvolvido por Randson Lojaweb.com.br</h1>
+    <h1>Todos os direitos Reservados</h1>
 
 </body>
 </html>
